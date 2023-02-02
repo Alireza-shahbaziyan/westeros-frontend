@@ -49,10 +49,10 @@ export default function Login() {
     }
 
     return (<>
-        <div className="grid min-h-screen place-content-center gap-y-2">
-            <div><input value={username} onChange={(data) => { setUsername(data.target.value) }} type="text" placeholder="Username" className="input w-96 bg-[#242E38]" /></div>
-            <div><input value={password} onChange={(data) => { setPassword(data.target.value) }} type="password" placeholder="Password" className="input w-96 bg-[#242E38]" /></div>
-            <div><button onClick={userAuth} className={"btn btn-lg btn-primary w-96 " + (disable == true ? "btn-disabled loading" : "")}>Login</button></div>
+        <div className="grid max-w-96 min-h-screen place-content-center gap-y-2">
+            <div><input value={username} onChange={(data) => { setUsername(data.target.value) }} type="text" placeholder="Username" className="input w-full bg-[#242E38]" /></div>
+            <div><input value={password} onChange={(data) => { setPassword(data.target.value) }} type="password" placeholder="Password" className="input w-full bg-[#242E38]" /></div>
+            <div><button onClick={userAuth} className={"btn btn-lg btn-primary w-full " + (disable == true ? "btn-disabled loading" : "")}>Login</button></div>
         </div>
     </>)
 }
