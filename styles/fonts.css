@@ -1,0 +1,14 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap');
+
+.josefin {
+    font-family: "Josefin Sans";
+}
+
+@font-face {
+    font-family: ProductSansRegular;
+    src: url(../public/product-sans-regular.ttf);
+}
+
+.psans {
+    font-family: 'ProductSansRegular';
+}
