@@ -4,8 +4,19 @@
 
 
 input::-webkit-input-placeholder {
+    color: #0C4A6E;
     opacity: .9;
     transition: .2s;
+}
+
+input {
+    background-color: #bae6fd !important;
+    color: #0c4a6e !important;
+}
+
+td {
+    background-color: #bae6fd !important;
+    color: #164e63 !important;
 }
 
 input:focus::-webkit-input-placeholder {

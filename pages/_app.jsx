@@ -8,9 +8,11 @@ import '@/styles/fonts.css'
 
 export default function App({ Component, pageProps }) {
 
+    if (Component.raw) return <div data-theme="synthwave" className="min-h-screen"><Component /></div>;
+
     const router = useRouter()
     const [cookies, setCookie, removeCookie] = useCookies(['auth']);
-
+    console.log(pageProps);
     useEffect(() => {
         if (!cookies.username || !cookies.password) {
             router.push('/login');
@@ -39,8 +41,9 @@ export default function App({ Component, pageProps }) {
     }, []);
 
     return (<>
-        <NextNProgress />
-        <div className="grid min-h-screen psans text-neutral-100 bg-[#1A2026]" >
+        <NextNProgress color="#FABF3C" />
+        
+        <div data-theme="dark" className="grid min-h-screen psans bg-sky-900" >
 
             <div className="grid grid-cols-12">
                 <div className="col-span-1 md:col-span-2 lg:col-span-3"></div>
