@@ -25,7 +25,7 @@ export default function Insert() {
                     ?
                     <Link href="/" className={"btn btn-warning btn-block btn-lg"}>back</Link>
                     :
-                    <button onClick={sendData} className={"btn no-animation btn-lg btn-warning " + (disable == true ? "btn-disabled loading" : "")}>Insert</button>
+                    <button onClick={sendData} className={"btn no-animation btn-lg btn-block btn-warning " + (disable == true ? "btn-disabled loading" : "")}>Insert</button>
                 }
             </div>
         </div>

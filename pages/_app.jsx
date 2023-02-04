@@ -14,7 +14,7 @@ export default function App({ Component, pageProps }) {
     const [cookies, setCookie, removeCookie] = useCookies(['auth']);
     console.log(pageProps);
     useEffect(() => {
-        if (!cookies.username || !cookies.password) {
+        if ((!cookies.username || !cookies.password) && !Component.raw) {
             router.push('/login');
         } else {
             fetch("/api/check-user", {
@@ -31,7 +31,7 @@ export default function App({ Component, pageProps }) {
             })
                 .then(res => res.json())
                 .then(data => {
-                    if (!data.status) {
+                    if (!data.status && !Component.raw) {
                         removeCookie("username");
                         removeCookie("password");
                         router.push("/login");
