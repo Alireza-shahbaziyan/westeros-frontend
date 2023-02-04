@@ -19,23 +19,27 @@ export default function Movie() {
 
 
 
-    // function SendFile(mid) {
+    function SendFile(mid) {
 
-    //     setBtns(btns.filter((value) => (
-    //         value != mid
-    //     )));
+        setButtons(buttons.filter((value) => (
+            value != mid
+        )));
 
-    //     let params = "?mid=" + mid;
-    //     params += "&user_id=" + searchParams.get("user_id");
+        fetch("/api/send-file", {
+            method: "post",
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
 
-    //     axios.get(box.movie_url + "/send_file" + params)
-    //         .then((response) => {
-
-    //         })
-    //         .catch((error) => {
-    //             alert(error);
-    //         })
-    // }
+            body: JSON.stringify({
+                mid: mid,
+                user_id: user_id,
+            })
+        })
+            .then(res => res.json())
+            .then(data => { })
+    }
 
 
     const toggleBookmark = () => {
@@ -163,7 +167,7 @@ export default function Movie() {
                 episodes.filter((value) => { if (value.season == selectedSeason) return value }).sort((a, b) => a.number - b.number).reverse().map((value, index) => {
                     if (value.episode != 0) {
                         return (
-                            <button key={index} /* onClick={() => SendFile(value.mid)} */ disabled={buttons.findIndex((v) => v == value.mid) == -1} className="btn btn-sm btn-primary">
+                            <button key={index} onClick={() => SendFile(value.mid)} disabled={buttons.findIndex((v) => v == value.mid) == -1} className="btn btn-sm btn-primary">
                                 {value.episode} - {value.quality}p
                             </button>
                         )
@@ -176,7 +180,7 @@ export default function Movie() {
                 episodes.filter((value) => { if (value.season == selectedSeason) return value }).sort((a, b) => a.number - b.number).reverse().map((value, index) => {
                     if (value.episode == 0) {
                         return (
-                            <button key={index} /* onClick={() => SendFile(value.mid)} */ disabled={buttons.findIndex((v) => v == value.mid) == -1} className="btn btn-sm btn-primary">
+                            <button key={index} onClick={() => SendFile(value.mid)} disabled={buttons.findIndex((v) => v == value.mid) == -1} className="btn btn-sm btn-primary">
                                 {qualityManager(value.quality)}
                             </button>
                         )

@@ -1,8 +1,6 @@
-import fetcher from "@/components/fetcher";
 import { useCookies } from "react-cookie";
 import { useRouter } from 'next/router'
 import { useState } from "react";
-import useSWR from 'swr';
 
 export default function Login() {
 
